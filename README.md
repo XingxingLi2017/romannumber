@@ -8,11 +8,12 @@ A SpringBoot Application providing an endpoint that can convert an integer to a 
   * Java 8
 ## How to Run
   1. clone the project `git clone https://github.com/XingxingLi2017/romannumber.git`
-  2. run maven pacakge command `mvn pacakge`
-  3. run springboot application with java command `java -jar .\target\romannumber.jar`
-  4. open the browser and access url `http://localhost:8080/romannumeral?query=3999`, if everything goes smoothly, you can see the JSON response like this 
+  2. enter the project directory `cd romannumber`
+  3. run maven package command `mvn pacakge`
+  4. run springboot application with java command `java -jar .\target\romannumber.jar`
+  5. open the browser and access url `http://localhost:8080/romannumeral?query=3999`, if everything goes smoothly, you can see the JSON response like this 
   ![Response](https://github.com/XingxingLi2017/romannumber/blob/master/img/response.png)
-  5. open the browser and access url `http://localhost:8080/romannumeral?query=-1`, you can get an error message like this
+  6. open the browser and access url `http://localhost:8080/romannumeral?query=-1`, you can get an error message like this
   ![Error](https://github.com/XingxingLi2017/romannumber/blob/master/img/outofrangeerror.png)
 ## How to deploy application in docker container
   * Environment: 
