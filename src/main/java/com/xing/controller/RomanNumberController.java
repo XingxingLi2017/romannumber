@@ -25,11 +25,11 @@ public class RomanNumberController {
     @GetMapping("/romannumeral")
     public Result getRamanNumber(@RequestParam("query") Integer number) throws InvalidNumberException {
 //        System.out.println(number);
-        logger.debug(String.format("Input query = %d", number));
+        logger.info(String.format("Input query = %d", number));
         Map<String, Object> map = new HashMap<>();
         map.put("input", number);
         String output = service.getRomanNumber(number);
-        logger.debug(String.format("Output string = %s", output));
+        logger.info(String.format("Output string = %s", output));
         map.put("output", output);
         return new Result(true, 200, "Success", map);
     }
