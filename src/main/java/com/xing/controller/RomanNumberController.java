@@ -4,6 +4,7 @@ import com.xing.entity.Result;
 import com.xing.service.RomanNumberService;
 import com.xing.util.exception.InvalidNumberException;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,8 +19,8 @@ public class RomanNumberController {
     @Autowired
     RomanNumberService service;
 
-    @Autowired
-    Logger logger;
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
 
     @GetMapping("/romannumeral")
     public Result getRamanNumber(@RequestParam("query") Integer number) throws InvalidNumberException {
