@@ -25,12 +25,13 @@ A SpringBoot Application providing an endpoint that can convert an integer to a 
   3. run docker container `sudo docker run -p 8080:8080 -t romannumber/romannumber`
   4. access url `http://remotehost:8080/romannumeral?query=3999`
 # Engineering And Testing Methodologies
-  * Java 8
-  * SpringBoot
-  * SpringMVC
-  * JUnit
-  * SpringBoot Test
-  * LogBack
+  * Conduct unit testing with JUnit and SpringBoot test library. 
+Mock up requests by using `MockMvc` object to send `get` requests to the endpoint. 
+  * Convert integer by using predefined `romanNumberUnits` in `application.yaml` file. We predefined 4 arrays:
+`M=["", "M", "MM", "MMM"]`, `C=["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]`,
+`X=["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]` and `I=["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]`.
+When we get a new integer `num`, we divided it by 1000, 100, 10 and get the corresponding Roman Units. 
+Resulting String `ret = M[num/1000] + C[(num%1000)/100] + X[(num%100)/10] + I[num%10]`.
 # Package Layout
   * src
     * main
@@ -54,3 +55,13 @@ A SpringBoot Application providing an endpoint that can convert an integer to a 
           * xing
             * controller
             * service
+# Dependencies
+  * SpringBoot
+  * SpringMVC
+  * Jackson JSON Converter
+  * JUnit
+  * SpringBoot Test
+  * Logback
+  * Docker Maven Plugin
+  * Spring Boot Maven Plugin
+  * Tomcat Server
