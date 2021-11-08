@@ -46,4 +46,15 @@ public class RomanNumberControllerTest {
         Result ret = objectMapper.readValue(response, Result.class);
         Assert.assertEquals(ErrorMessages.OUT_OF_RANGE_NUMBER,  ret.getMessage());
     }
+
+    @Test
+    public void testGetRamanNumberEmptyInput() throws Exception {
+        ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders
+                .get("/romannumeral")
+                .param("query", ""));
+        resultActions.andExpect(MockMvcResultMatchers.status().is5xxServerError());
+        String response = resultActions.andReturn().getResponse().getContentAsString();
+        Result ret = objectMapper.readValue(response, Result.class);
+        Assert.assertEquals(ErrorMessages.UNEXPECTED_ERROR,  ret.getMessage());
+    }
 }
