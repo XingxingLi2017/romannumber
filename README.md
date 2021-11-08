@@ -17,6 +17,8 @@ A SpringBoot Application providing an endpoint that can convert an integer to a 
   * Environment: 
     * Ubuntu 20.04.1
     * Docker 20.10.7
+    * Maven 3.2+
+    * JDK 1.8
   1. build docker image `sudo mvn clean package docker:build`
   2. check docker image `sudo docker images`
   3. run docker container `sudo docker run -p 8080:8080 -t romannumber/romannumber`
