@@ -19,6 +19,7 @@ A SpringBoot Application providing an endpoint that can convert an integer to a 
   * SpringMVC
   * JUnit
   * SpringBoot Test
+  * LogBack
 # Package Layout
   * src
     * main
