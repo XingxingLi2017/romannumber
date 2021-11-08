@@ -3,6 +3,10 @@ server:
   error:
     whitelabel:
       enabled: false
+# logging settings
+logging:
+  level:
+    root: debug
 # roman number unit mapping
 romanNumberUnits:
   M:
