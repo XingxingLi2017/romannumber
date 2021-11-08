@@ -16,7 +16,7 @@ public class RomanNumberServiceImpl implements RomanNumberService {
     @Override
     public String getRomanNumber(Integer number) throws InvalidNumberException {
         if(number < 1 || number > 3999)
-            throw new InvalidNumberException("The input number is valid integer in range [1, 3999]");
+            throw new InvalidNumberException("The input number is not a valid integer in range [1, 3999]");
         return units.getM().get(number/1000)
                 + units.getC().get((number % 1000) / 100)
                 + units.getX().get((number % 100) / 10)
