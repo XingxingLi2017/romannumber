@@ -4,7 +4,6 @@ import com.xing.config.RomanUnitProps;
 import com.xing.service.RomanNumberService;
 import com.xing.util.exception.InvalidNumberException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -13,9 +13,16 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 public class ExceptionHander extends ResponseEntityExceptionHandler {
+
     @ExceptionHandler(InvalidNumberException.class)
-    protected ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {
+    protected ResponseEntity<Object> handleInvalidNumberError(RuntimeException ex, WebRequest request) {
         Result ret = new Result(false, 400, ex.getMessage());
         return handleExceptionInternal(ex, ret, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    protected ResponseEntity<Object> handleUnexpectErrors(RuntimeException ex, WebRequest request) {
+        Result ret = new Result(false, 500, ex.getMessage());
+        return handleExceptionInternal(ex, ret, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 }
