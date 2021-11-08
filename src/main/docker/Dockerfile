@@ -1,4 +1,4 @@
-FROM frolvlad/alpine-oraclejdk8:slim
+FROM java:8
 VOLUME /tmp
-ADD romannumber-1.0-SNAPSHOT.jar app.jar
+ADD romannumber.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]

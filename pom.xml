@@ -73,5 +73,6 @@
             </plugin>
             <!-- Docker maven plugin -->
         </plugins>
+        <finalName>romannumber</finalName>
     </build>
 </project>
