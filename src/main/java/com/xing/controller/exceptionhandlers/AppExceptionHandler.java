@@ -16,8 +16,8 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(InvalidNumberException.class)
     protected ResponseEntity<Object> handleInvalidNumberError(RuntimeException ex, WebRequest request) {
-        Result ret = new Result(false, 400, ex.getMessage());
-        return handleExceptionInternal(ex, ret, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+        Result ret = new Result(false, 500, ex.getMessage());
+        return handleExceptionInternal(ex, ret, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 
     @ExceptionHandler(RuntimeException.class)

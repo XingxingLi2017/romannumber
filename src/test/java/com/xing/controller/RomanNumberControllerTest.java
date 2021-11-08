@@ -41,7 +41,7 @@ public class RomanNumberControllerTest {
         ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders
                 .get("/romannumeral")
                 .param("query", "-12"));
-        resultActions.andExpect(MockMvcResultMatchers.status().isBadRequest());
+        resultActions.andExpect(MockMvcResultMatchers.status().is5xxServerError());
         String response = resultActions.andReturn().getResponse().getContentAsString();
         Result ret = objectMapper.readValue(response, Result.class);
         Assert.assertEquals(ErrorMessages.OUT_OF_RANGE_NUMBER,  ret.getMessage());
