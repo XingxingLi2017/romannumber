@@ -13,6 +13,14 @@ A SpringBoot Application providing an endpoint that can convert an integer to a 
   ![Response](https://github.com/XingxingLi2017/romannumber/blob/master/img/response.png)
   5. open the browser and access url `http://localhost:8080/romannumeral?query=-1`, you can get an error message like this
   ![Error](https://github.com/XingxingLi2017/romannumber/blob/master/img/outofrangeerror.png)
+## How to deploy application in docker container
+  * Environment: 
+    * Ubuntu 20.04.1
+    * Docker 20.10.7
+  1. build docker image `sudo mvn clean package docker:build`
+  2. check docker image `sudo docker images`
+  3. run docker container `sudo docker run -p 8080:8080 -t romannumber/romannumber`
+  4. access url `http://remotehost:8080/romannumeral?query=3999`
 # Engineering And Testing Methodologies
   * Java 8
   * SpringBoot
