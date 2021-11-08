@@ -36,6 +36,7 @@ A SpringBoot Application providing an endpoint that can convert an integer to a 
             * util
               * exception
       * resources
+      * docker
     * test
       * java
         * com
