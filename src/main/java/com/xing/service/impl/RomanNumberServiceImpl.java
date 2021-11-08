@@ -1,6 +1,7 @@
 package com.xing.service.impl;
 
 import com.xing.config.RomanUnitProps;
+import com.xing.constant.ErrorMessages;
 import com.xing.service.RomanNumberService;
 import com.xing.util.exception.InvalidNumberException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class RomanNumberServiceImpl implements RomanNumberService {
     @Override
     public String getRomanNumber(Integer number) throws InvalidNumberException {
         if(number < 1 || number > 3999)
-            throw new InvalidNumberException("The input number is not a valid integer in range [1, 3999]");
+            throw new InvalidNumberException(ErrorMessages.OUT_OF_RANGE_NUMBER);
         return units.getM().get(number/1000)
                 + units.getC().get((number % 1000) / 100)
                 + units.getX().get((number % 100) / 10)

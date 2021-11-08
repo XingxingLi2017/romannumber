@@ -1,8 +1,8 @@
-package com.xing.controller.exception;
+package com.xing.controller.exceptionhandlers;
 
+import com.xing.constant.ErrorMessages;
 import com.xing.entity.Result;
 import com.xing.util.exception.InvalidNumberException;
-import org.omg.CORBA.DynAnyPackage.Invalid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @ControllerAdvice
-public class ExceptionHander extends ResponseEntityExceptionHandler {
+public class AppExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(InvalidNumberException.class)
     protected ResponseEntity<Object> handleInvalidNumberError(RuntimeException ex, WebRequest request) {
@@ -22,7 +22,7 @@ public class ExceptionHander extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
     protected ResponseEntity<Object> handleUnexpectErrors(RuntimeException ex, WebRequest request) {
-        Result ret = new Result(false, 500, ex.getMessage());
+        Result ret = new Result(false, 500, ErrorMessages.UNEXPECTED_ERROR);
         return handleExceptionInternal(ex, ret, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 }
