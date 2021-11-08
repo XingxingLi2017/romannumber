@@ -1,6 +1,7 @@
 # Roman Number
 A SpringBoot Application providing an endpoint that can convert an integer to a roman number.
-
+## Roman Number Specification
+[Roman Number Specification Reference](https://en.wikipedia.org/wiki/Roman_numerals)
 # Build And Run
 ## Build With
   * Maven
